@@ -1,0 +1,65 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    // 1. Verificar si un número ingresado es par.
+    int numero;
+    cout << "Ingrese un numero: ";
+    cin >> numero;
+
+    if (numero % 2 == 0) {
+        cout << "El numero es par." << endl;
+    } else {
+        cout << "El numero es impar." << endl;
+    }
+
+    // 2. Determinar si un año ingresado es bisiesto.
+    int year;
+    cout << "Ingrese un anio: ";
+    cin >> year;
+
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+        cout << "El anio es bisiesto." << endl;
+    } else {
+        cout << "El anio no es bisiesto." << endl;
+    }
+
+    // 3. Verificar si dos números ingresados son iguales.
+    int num1, num2;
+    cout << "Ingrese el primer numero: ";
+    cin >> num1;
+
+    cout << "Ingrese el segundo numero: ";
+    cin >> num2;
+
+    if (num1 == num2) {
+        cout << "Los numeros son iguales." << endl;
+    } else {
+        cout << "Los numeros no son iguales." << endl;
+    }
+
+    // 4. Verificar si un usuario es mayor de edad.
+    int edad;
+    cout << "Ingrese su edad: ";
+    cin >> edad;
+
+    if (edad >= 18) {
+        cout << "Usted es mayor de edad." << endl;
+    } else {
+        cout << "Usted es menor de edad." << endl;
+    }
+
+    // 5. Evaluar si un estudiante aprobó un examen.
+    int calificacion;
+    cout << "Ingrese la calificacion del estudiante: ";
+    cin >> calificacion;
+
+    if (calificacion >= 60) {
+        cout << "El estudiante ha aprobado el examen." << endl;
+    } else {
+        cout << "El estudiante ha reprobado el examen." << endl;
+    }
+
+    return 0;
+}
