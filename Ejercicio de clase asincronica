@@ -1,0 +1,164 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+// Declaración de funciones
+float suma(float a, float b);
+float resta(float a, float b);
+float multiplicacion(float a, float b);
+float division(float a, float b);
+float calcularExponente(float base, int exponente);
+bool esPrimo(int numero);
+
+int main() {
+    int opcion;
+
+    do {
+        // Menú de opciones
+        cout << "---- Calculadora ----" << endl;
+        cout << "1. Suma" << endl;
+        cout << "2. Resta" << endl;
+        cout << "3. Multiplicacion" << endl;
+        cout << "4. Division" << endl;
+        cout << "5. Calcular Exponente" << endl;
+        cout << "6. Verificar si un numero es primo" << endl;
+        cout << "7. Verificar si un año es bisiesto" << endl;
+        cout << "0. Salir" << endl;
+        cout << "Seleccione una opcion: ";
+        cin >> opcion;
+
+        switch (opcion) {
+            case 1: {
+                // Código para la suma
+                float num1, num2;
+                cout << "Ingrese el primer numero: ";
+                cin >> num1;
+                cout << "Ingrese el segundo numero: ";
+                cin >> num2;
+                cout << "Resultado de la suma: " << suma(num1, num2) << endl;
+                break;
+            }
+            case 2: {
+                // Código para la resta
+                float num1, num2;
+                cout << "Ingrese el primer numero: ";
+                cin >> num1;
+                cout << "Ingrese el segundo numero: ";
+                cin >> num2;
+                cout << "Resultado de la resta: " << resta(num1, num2) << endl;
+                break;
+            }
+            case 3: {
+                // Código para la multiplicación
+                float num1, num2;
+                cout << "Ingrese el primer numero: ";
+                cin >> num1;
+                cout << "Ingrese el segundo numero: ";
+                cin >> num2;
+                cout << "Resultado de la multiplicacion: " << multiplicacion(num1, num2) << endl;
+                break;
+            }
+            case 4: {
+                // Código para la división
+                float num1, num2;
+                cout << "Ingrese el primer numero: ";
+                cin >> num1;
+                cout << "Ingrese el segundo numero: ";
+                cin >> num2;
+
+                if (num2 != 0) {
+                    cout << "Resultado de la division: " << division(num1, num2) << endl;
+                } else {
+                    cout << "Error: No se puede dividir por cero." << endl;
+                }
+                break;
+            }
+            case 5: {
+                // Código para el cálculo de exponente
+                int num3, exp;
+                cout << "Ingrese el primer numero: ";
+                cin >> num3;
+                cout << "Ingrese el exponente: ";
+                cin >> exp;
+                cout << "Resultado de " << num3 << " elevado a la " << exp << ": " << calcularExponente(num3, exp) << endl;
+                break;
+            }
+            case 6: {
+                // Código para verificar si un número es primo
+                int numeroIngresado;
+                cout << "Ingrese un numero para verificar si es primo: ";
+                cin >> numeroIngresado;
+                if (esPrimo(numeroIngresado)) {
+                    cout << numeroIngresado << " es un numero primo." << endl;
+                } else {
+                    cout << numeroIngresado << " no es un numero primo." << endl;
+                }
+                break;
+            }
+            case 7: {
+                // Código para verificar si un año es bisiesto
+                int year;
+                cout << "Ingrese un anio: ";
+                cin >> year;
+                if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+                    cout << "El anio es bisiesto." << endl;
+                } else {
+                    cout << "El anio no es bisiesto." << endl;
+                }
+                break;
+            }
+            case 0: {
+                // Salir del programa
+                cout << "Saliendo del programa. Hasta luego." << endl;
+                break;
+            }
+            default:
+                cout << "Opcion invalida. Por favor, seleccione una opcion valida." << endl;
+        }
+
+    } while (opcion != 0);
+
+    return 0;
+}
+
+
+// Definición de funciones
+float suma(float a, float b) {
+    return a + b;
+}
+
+float resta(float a, float b) {
+    return a - b;
+}
+
+float multiplicacion(float a, float b) {
+    return a * b;
+}
+
+float division(float a, float b) {
+    // Asegurarse de que el divisor (b) no sea cero
+    if (b != 0) {
+        return static_cast<float>(a) / b; // Convertir uno de los operandos a float para obtener un resultado decimal
+    }
+
+    return 0;
+}
+
+float calcularExponente(float base, int exponente) {
+    return pow(base, exponente);
+}
+
+bool esPrimo(int numero) {
+    if (numero <= 1) {
+        return false;  // Los números menores o iguales a 1 no son primos
+    }
+
+    for (int i = 2; i * i <= numero; i++) {
+        if (numero % i == 0) {
+            return false;  // Si es divisible por algún número, no es primo
+        }
+    }
+
+    return true;  // Si no fue divisible por ningún número, es primo
+    }
